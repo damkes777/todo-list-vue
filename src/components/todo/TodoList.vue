@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container mx-auto mt-12 p-5 rounded-lg bg-gray-800 text-gray-200">
     <Calendar/>
     <TodoCreator @created="onTodoCreated($event)"/>
     <ListItem :todos="todos" @deleteTask="onTodoDelete($event)"/>

@@ -15,9 +15,9 @@ export function useCalendar() {
     }, {deep: true});
 
     const getDays = () => {
-        return Array.from({length: 7}, (_, i) => {
+        return Array.from({length: 5}, (_, i) => {
             const date = new Date(now.value);
-            date.setDate(now.value.getDate() + i - 3);
+            date.setDate(date.getDate() + i - 2);
 
             return date.toLocaleDateString(undefined, {month: '2-digit', day: '2-digit'});
         });
@@ -30,11 +30,13 @@ export function useCalendar() {
     }
 
     const setNextDay = () => {
-        now.value = new Date(now.value.setDate(now.value.getDate() + 1));
+        const date = new Date(now.value)
+        now.value = new Date(date.setDate(date.getDate() + 1))
     };
 
     const setPreviousDay = () => {
-        now.value = new Date(now.value.setDate(now.value.getDate() - 1));
+        const date = new Date(now.value)
+        now.value = new Date(date.setDate(date.getDate() - 1))
     };
 
     return {

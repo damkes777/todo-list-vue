@@ -1,16 +1,14 @@
 <template>
-  <div>
-    <button @click="setPreviousDay()">Previous</button>
-    <div v-for="day in days" :key="day">
-      <span>{{ day }}</span>
-    </div>
-    <button @click="setNextDay()">Next</button>
+  <div class="flex justify-center">
+    <button class="px-2 font-semibold bg-pink-600" @click="setPreviousDay()">Previous</button>
+    <DaysList :days="days" :now="now"/>
+    <button class="bg-pink-600" @click="setNextDay()">Next</button>
   </div>
 </template>
 
 <script setup>
 import { useCalendar } from "@/composables/useCalendar.js";
-import {watchEffect} from "vue";
+import DaysList from "@/components/calendar/DaysList.vue";
 
 const {
   now,
@@ -19,7 +17,4 @@ const {
   setPreviousDay
 } = useCalendar();
 
-watchEffect(() => {
-  now.value
-})
 </script>
