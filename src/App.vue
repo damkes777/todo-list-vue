@@ -1,7 +1,5 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-import TodoList from "@/components/TodoList.vue";
+import TodoList from "@/components/todo/TodoList.vue";
 </script>
 
 <template>
