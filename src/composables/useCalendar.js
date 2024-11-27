@@ -3,30 +3,32 @@ import {ref, watch, onMounted} from "vue";
 export function useCalendar() {
     const now = ref(new Date());
     const days = ref([])
-    const year = ref('')
+    const monthYear = ref()
+    const weekday = ref()
 
     onMounted(() => {
         days.value = getDays()
-        year.value = getYear()
+        monthYear.value = getMonthYear()
     })
 
     watch(now, () => {
         days.value = getDays()
+        monthYear.value = getMonthYear()
     }, {deep: true});
+
+    const getMonthYear = () => {
+        const date = new Date(now.value)
+
+        return date.toLocaleDateString(undefined, {month: "long", year: "numeric"})
+    }
 
     const getDays = () => {
         return Array.from({length: 5}, (_, i) => {
             const date = new Date(now.value);
             date.setDate(date.getDate() + i - 2);
 
-            return date.toLocaleDateString(undefined, {month: '2-digit', day: '2-digit'});
+            return date.toLocaleDateString(undefined, {day: '2-digit'});
         });
-    }
-
-    const getYear = () => {
-        const date = new Date(now.value)
-
-        return date.toLocaleDateString(undefined, {year: "numeric"})
     }
 
     const setNextDay = () => {
@@ -42,7 +44,7 @@ export function useCalendar() {
     return {
         now,
         days,
-        year,
+        monthYear,
         setNextDay,
         setPreviousDay,
     };

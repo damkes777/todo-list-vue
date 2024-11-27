@@ -2,9 +2,9 @@ import {onBeforeMount, watch} from "vue";
 
 export function useLocalStorage(key, ref) {
     onBeforeMount(() => {
-        const value = localStorage.getItem(key) ?? [];
-        if (value) {
-            ref.value = JSON.parse(value);
+        const value = window.localStorage.getItem(key) ?? [];
+        if (value.empty) {
+            ref.value = JSON.parse(value) ?? [];
         }
     });
 

@@ -13,7 +13,7 @@ defineProps(['days', 'now'])
 
 const dayAndNowIsEqual = (day, now) => {
   const date = new Date(now)
-  const nowDay = date.toLocaleDateString(undefined, {month: "2-digit", day: "2-digit"})
+  const nowDay = date.toLocaleDateString(undefined, {day: "2-digit"})
 
   return day === nowDay
 }
