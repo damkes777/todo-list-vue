@@ -4,11 +4,15 @@ import {
     faChevronLeft,
     faChevronRight,
     faPlus,
+    faTrash,
+    faCheck
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
     faHouse,
     faChevronLeft,
     faChevronRight,
-    faPlus
+    faPlus,
+    faTrash,
+    faCheck
 );

@@ -1,7 +1,7 @@
 <template>
-  <div class="container mx-auto mt-12 p-5 rounded-lg bg-gray-800 text-gray-200">
+  <div class="container mx-auto p-5 bg-gray-800 text-gray-200 sm:mt-12 sm:rounded-lg h-dvh sm:max-h-64">
     <Calendar/>
-    <TodoCreator @created="onTodoCreated($event)" class="mt-5"/>
+    <TodoCreator @created="onTodoCreated($event)" class="my-5"/>
     <ListItem :todos="todos" @deleteTask="onTodoDelete($event)"/>
   </div>
 </template>
