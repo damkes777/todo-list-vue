@@ -9,7 +9,7 @@
         <font-awesome-icon :icon="['fas', 'check']" class="ml-2 text-pink-500"/>
       </span>
       <span v-else class="font-semibold">
-        {{ todo.value }}
+        {{ todo.content }}
       </span>
       <div class="flex">
         <div v-if="todo.done">

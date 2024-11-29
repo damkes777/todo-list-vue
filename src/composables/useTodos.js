@@ -5,7 +5,7 @@ export function useTodos() {
 
     const onTodoCreated = (todo) => {
         todos.value.push({
-            value: todo.value['value'],
+            content: todo.value['content'],
             date: todo.value['date'],
             done: false
         })
