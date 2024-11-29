@@ -5,7 +5,10 @@ import {
     faChevronRight,
     faPlus,
     faTrash,
-    faCheck
+    faCheck,
+    faUndo,
+    faSquare,
+    faSquareCheck,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -14,5 +17,8 @@ library.add(
     faChevronRight,
     faPlus,
     faTrash,
-    faCheck
+    faCheck,
+    faUndo,
+    faSquare,
+    faSquareCheck,
 );

@@ -4,7 +4,6 @@ export function useCalendar() {
     const now = ref(new Date());
     const days = ref([])
     const monthYear = ref()
-    const weekday = ref()
 
     onMounted(() => {
         days.value = getDays()

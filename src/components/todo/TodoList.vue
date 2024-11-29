@@ -1,8 +1,14 @@
 <template>
-  <div class="container mx-auto p-5 bg-gray-800 text-gray-200 sm:mt-12 sm:rounded-lg h-dvh sm:max-h-64">
+  <div class="container mx-auto p-5 bg-gray-800 text-gray-200 sm:mt-12 sm:rounded-lg h-dvh sm:h-fit sm:shadow-2xl">
     <Calendar/>
     <TodoCreator @created="onTodoCreated($event)" class="my-5"/>
-    <ListItem :todos="todos" @deleteTask="onTodoDelete($event)"/>
+    <div class="mb-8">
+      <ListItem :todos="todos"
+                @deleteTask="onTodoDelete($event)"
+                @markAsDone="onMarkAsDone($event)"
+                @undo="onUndo($event)"
+      />
+    </div>
   </div>
 </template>
 
@@ -16,7 +22,9 @@ import Calendar from "@/components/calendar/Calendar.vue";
 const {
   todos,
   onTodoCreated,
-  onTodoDelete
+  onTodoDelete,
+  onMarkAsDone,
+  onUndo
 } = useTodos()
 
 useLocalStorage('todos', todos)
